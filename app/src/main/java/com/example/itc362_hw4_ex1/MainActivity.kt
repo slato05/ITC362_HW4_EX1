@@ -35,17 +35,19 @@ class MainActivity : AppCompatActivity() {
 
         binding.nextButton.setOnClickListener {
             Log.d(TAG, "binding.nextButton.setOnClickListener")
-            quizViewModel.moveToNext()
+            quizViewModel.moveToNext() //use moveToNext from QuizViewModel class to traverse questions
             updateQuestion()
         }
         updateQuestion()
     }
 
     private fun updateQuestion(){
+        //use currentQuestionText value to set text for next question
         val questionTextResId = quizViewModel.currentQuestionText
         binding.questionTextView.setText(questionTextResId)
     }
     private fun checkAnswer(userAnswer:Boolean) {
+        //use currentQuestionAnswer value to check answer
         val correctAnswer = quizViewModel.currentQuestionAnswer
         val messageResId = if (userAnswer == correctAnswer) {
             R.string.correct_toast

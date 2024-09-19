@@ -19,15 +19,15 @@ class QuizViewModel(private val savedStateHandle: SavedStateHandle) : ViewModel(
     )
 
     var currentIndex: Int
-
+        //use a getter and setter to get and set CURRENT_INDEX_KEY (if nothing set to 0)
         get() = savedStateHandle.get(CURRENT_INDEX_KEY) ?: 0
         set(value) = savedStateHandle.set(CURRENT_INDEX_KEY, value)
 
     val currentQuestionAnswer: Boolean
-        get() = questionBank[currentIndex].answer
+        get() = questionBank[currentIndex].answer //use getter to obtain current answer
 
     val currentQuestionText: Int
-        get() = questionBank[currentIndex].textResId
+        get() = questionBank[currentIndex].textResId //use getter to obtain current question text
 
     fun moveToNext() {
         Log.d(TAG, "Updating question text")
